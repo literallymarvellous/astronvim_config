@@ -11,7 +11,10 @@ return {
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr) require("astronvim.utils.buffer").close(bufnr) end)
+        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
+          require("astronvim.utils.buffer").close(
+            bufnr)
+        end)
       end,
       desc = "Pick to close",
     },
@@ -20,6 +23,30 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["ct"] = {
+      function()
+        require("crates").toggle()
+      end,
+      desc = "Toggle crates"
+    },
+    ["cv"] = {
+      function()
+        require("crates").show_versions_popup()
+      end,
+      desc = "Toggle crates"
+    },
+    ["<C-a>"] = {
+      function()
+        require("rust-tools").hover_actions.hover_actions()
+      end,
+      desc = "Hover actions"
+    },
+    ["<leader>O"] = {
+      function()
+        require("overseer").run_template()
+      end,
+      desc = "Toggle task lists"
+    }
   },
   t = {
     -- setting a mapping to false will disable it
